@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="startapp">
+
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>START - Retro Tool</title>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="bower_components/lodash/lodash.min.js"></script>
+    <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/services/sessionUtils.js"></script>
+    <script src="scripts/services/messagesService.js"></script>
+    <script src="scripts/nav/navController.js"></script>
+    <script src="scripts/home/homeController.js"></script>
+    <script src="scripts/about/aboutController.js"></script>
+    <script src="scripts/contact/contactController.js"></script>  
+    <script src="scripts/retrospective/dir/retrospectiveDirective.js"></script>  
+    <script src="scripts/retrospective/dir/teamViewDirective.js"></script>
+    <script src="scripts/retrospective/dir/createMessagesDirective.js"></script>
+    <script src="scripts/retrospective/ctrl/retrospectiveController.js"></script>     
+</head>
+
+<body>
+    <nav class="navbar navbar-default" ng-controller="navController">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">START - Scrum Team Anonymous Retrospective Template!</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="" ng-click="goHome()"><i class="fa fa-home"></i> Home</a></li>
+                <li ng-show="canRetropect"><a href="" ng-click="goRetrospect()"><i class="fa fa-comment"></i> Retrospective</a></li>
+                <li><a href="" ng-click="goAbout()"><i class="fa fa-shield"></i> About</a></li>                
+                <li><a href="" ng-click="goContact()"><i class="fa fa-comment"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="main">
+        <!-- angular templating -->
+        <!-- this is where content will be injected -->
+        <div ng-view></div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://github.com/gunderm2">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; mikeinmotion.net 2015</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

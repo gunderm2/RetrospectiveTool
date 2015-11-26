@@ -1,0 +1,126 @@
+<div class="container-fluid" style="text-align: left">
+    <div class="bs-example" data-example-id="table-within-panel">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Restrospective Tool Table</div>
+            <div class="panel-body">
+                <p>Todays Date: {{todaysDate}}</p>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-8">
+                    <!-- Table -->
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="active">
+                                <th>#</th>
+                                <th>Kudos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="kudo in messages.kudos">
+                                <th scope="row">{{$index}}</th>
+                                <td>
+                                    {{kudo.text}} {{kudo.likes && kudo.likes > 0 ? '+' + kudo.likes : ""}}
+                                    <button style="float:right" type="button" class="btn btn-default" ng-click="addLike($index, 'kudos')">
+                                        <i class="glyphicon glyphicon-thumbs-up"></i>
+                                    </button>
+                                    <button type="button" style="float:right" class="btn btn-default" ng-click="edit($index, 'kudos')">Edit</button>
+                                    <button ng-show="kudo.edit" style="float:right" type="button" class="btn btn-default" ng-click="showTxtArea($index, 'kudos')">
+                                        <i class="glyphicon glyphicon-pencil"></i>
+                                    </button>
+                                    <button ng-show="kudo.edit" style="float:right" type="button" class="btn btn-default" ng-click="remove($index, 'kudos')">
+                                        <i class="glyphicon glyphicon-remove"></i>
+                                    </button>
+                                    <div ng-show="kudo.updateMessage">
+                                        <label for="kudosTextarea_{{$index}}">Enter message</label>
+                                        <br>
+                                        <textarea id="kudosTextarea_{{$index}}" name="textarea2" rows="4" cols="50" ng-model="messages.kudos[$index].text"></textarea>
+                                        <br />
+                                        <button ng-click="updateMsg($index, 'kudos')">Save</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-8">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="success">
+                                <th>#</th>
+                                <th>Went Well</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="well in messages.wentWell">
+                                <th scope="row">{{$index}}</th>
+                                <td>
+                                    {{well.text}} {{well.likes && well.likes > 0 ? '+' + well.likes : ""}}
+                                    <button style="float:right" type="button" class="btn btn-default" ng-click="addLike($index, 'wentWell')">
+                                        <i class="glyphicon glyphicon-thumbs-up"></i>
+                                    </button>
+                                    <button type="button" style="float:right" class="btn btn-default" ng-click="edit($index, 'wentWell')">Edit</button>
+                                    <button ng-show="well.edit" style="float:right" type="button" class="btn btn-default" ng-click="showTxtArea($index, 'wentWell')">
+                                        <i class="glyphicon glyphicon-pencil"></i>
+                                    </button>
+                                    <button ng-show="well.edit" style="float:right" type="button" class="btn btn-default" ng-click="remove($index, 'wentWell')">
+                                        <i class="glyphicon glyphicon-remove"></i>
+                                    </button>
+                                    <div ng-show="well.updateMessage">
+                                        <label for="wellTextarea_{{$index}}">Enter message</label>
+                                        <br>
+                                        <textarea id="wellTextarea_{{$index}}" name="textarea2" rows="4" cols="50" ng-model="messages.wentWell[$index].text"></textarea>
+                                        <br />
+                                        <button ng-click="updateMsg($index, 'wentWell')">Save</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-8">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="danger">
+                                <th>#</th>
+                                <th>Did not go well</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="notWell in messages.notWell">
+                                <th scope="row">{{$index}}</th>
+                                <td>
+                                    {{notWell.text}} {{notWell.likes && notWell.likes > 0 ? '+' + notWell.likes : ""}}
+                                    <button style="float:right" type="button" class="btn btn-default" ng-click="addLike($index, 'notWell')">
+                                        <i class="glyphicon glyphicon-thumbs-up"></i>
+                                    </button>
+                                    <button type="button" style="float:right" class="btn btn-default" ng-click="edit($index, 'notWell')">Edit</button>
+                                    <button ng-show="notWell.edit" style="float:right" type="button" class="btn btn-default" ng-click="showTxtArea($index, 'notWell')">
+                                        <i class="glyphicon glyphicon-pencil"></i>
+                                    </button>
+                                    <button ng-show="notWell.edit" style="float:right" type="button" class="btn btn-default" ng-click="remove($index, 'notWell')">
+                                        <i class="glyphicon glyphicon-remove"></i>
+                                    </button>
+                                    <div ng-show="notWell.updateMessage">
+                                        <label for="notTextarea_{{$index}}">Enter message</label>
+                                        <br>
+                                        <textarea id="notTextarea_{{$index}}" name="textarea2" rows="4" cols="50" ng-model="messages.notWell[$index].text"></textarea>
+                                        <br />
+                                        <button ng-click="updateMsg($index, 'notWell')">Save</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+</div>

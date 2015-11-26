@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <form>
+            <label for="textarea">Enter a message</label>
+            <br>
+            <textarea class="form-control col-md-4" id="textarea" name="textarea" rows="3" cols="10" ng-model="message"></textarea>
+            <br />
+            <button type="button" class="btn btn-default" ng-click="createMessage('kudos', message)">Kudos</button>
+            <button type="button" class="btn btn-success" ng-click="createMessage('wentWell', message)">Went well</button>
+            <button type="button" class="btn btn-danger" ng-click="createMessage('notWell', message)">Not well</button>
+            <!--            <button type="button" class="btn btn-default" ng-click="clear()">clear</button>-->
+            <button type="button" class="btn btn-info" ng-click="save()">
+                <i class="glyphicon glyphicon-download-alt"></i>
+            </button>
+        </form>
+    </div>
+</div>
