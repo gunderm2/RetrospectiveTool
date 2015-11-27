@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>START - Retro Tool</title>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-<!--    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
-   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/codeblock.css">
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
@@ -21,12 +21,12 @@
     <script src="scripts/nav/navController.js"></script>
     <script src="scripts/home/homeController.js"></script>
     <script src="scripts/about/aboutController.js"></script>
-    <script src="scripts/contact/contactController.js"></script>  
+    <script src="scripts/contact/contactController.js"></script>
     <script src="scripts/footer/footerController.js"></script>
-    <script src="scripts/retrospective/dir/retrospectiveDirective.js"></script>  
+    <script src="scripts/retrospective/dir/retrospectiveDirective.js"></script>
     <script src="scripts/retrospective/dir/teamViewDirective.js"></script>
     <script src="scripts/retrospective/dir/createMessagesDirective.js"></script>
-    <script src="scripts/retrospective/ctrl/retrospectiveController.js"></script>     
+    <script src="scripts/retrospective/ctrl/retrospectiveController.js"></script>
 </head>
 
 <body>
@@ -39,7 +39,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="" ng-click="goHome()"><i class="fa fa-home"></i> Home</a></li>
                 <li ng-show="canRetropect"><a href="" ng-click="goRetrospect()"><i class="fa fa-comment"></i> Retrospective</a></li>
-                <li><a href="" ng-click="goAbout()"><i class="fa fa-shield"></i> About</a></li>                
+                <li><a href="" ng-click="goAbout()"><i class="fa fa-shield"></i> About</a></li>
                 <li><a href="" ng-click="goContact()"><i class="fa fa-comment"></i> Contact</a></li>
             </ul>
         </div>
@@ -55,7 +55,7 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
                         <li>
-                            <a href="https://github.com/gunderm2/RetrospectiveTool"  target="_blank">
+                            <a href="https://github.com/gunderm2/RetrospectiveTool" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -63,9 +63,9 @@
                             </a>
                         </li>
                         <li>
-                            <p><a href="http://mikeinmotion.net/#/home"  target="_blank">[mikeinmotion.net {{thisYear}}]</a></p>
+                            <p><a href="http://mikeinmotion.net/#/home" target="_blank">[mikeinmotion.net {{thisYear}}]</a></p>
                         </li>
-                    </ul>                    
+                    </ul>
                 </div>
             </div>
         </div>
