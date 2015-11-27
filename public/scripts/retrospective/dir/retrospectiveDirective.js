@@ -18,7 +18,7 @@ myApp.directive('retrospectiveDirective', function () {
             this.save = function () {
                 JSONToCSVConverter($scope.messages, "Retrospective " + new Date(), true);
             }
-            
+
             this.edit = function (index, type) {
                 if ($scope.updateMessage) {
                     $scope.updateMessage = false;
@@ -64,17 +64,17 @@ myApp.directive('retrospectiveDirective', function () {
                     });
             }
 
-            initViewData(); // when landing on the page, get all messages and show them
+            getBackendData(); // when landing on the page, get all messages and show them
 
             // delete a message after checking it
             this.deleteMessage = function (index, type) {
                 $interval.cancel(myInterval);
                 messagesService.messageDelete($scope.messages[type][index]._id).success(function (response) {
                     console.log('delete response :', response);
-                        $scope.messages = {};
-                        $scope.messages = sortAndCopyData(response);
+                    $scope.messages = {};
+                    $scope.messages = sortAndCopyData(response);
 
-                        myInterval = $interval(updateView, intervalValue);
+                    myInterval = $interval(updateView, intervalValue);
                 }).error(function (response) {
                     console.log('Error: ' + response);
                     myInterval = $interval(updateView, intervalValue);
@@ -95,25 +95,10 @@ myApp.directive('retrospectiveDirective', function () {
                 return mutableObject;
             }
 
-            function initViewData() {
-                console.log('initViewData :');
+            function getBackendData() {
                 messagesService.messagesRetrieve($scope.sessionId).success(function (response) {
                         $scope.messages = {};
                         $scope.messages = sortAndCopyData(response);
-                        console.log('response :', response);
-                    })
-                    .error(function (response) {
-                        console.log('Error: ' + response);
-                    });
-            }
-
-            function getBackendData() {
-                messagesService.messagesRetrieve($scope.sessionId).success(function (response) {
-                        console.log('responseData :', response);
-                        if (response.length !== 0) { //when no data has changed 304 is returned []
-                            $scope.messages = {};
-                            $scope.messages = sortAndCopyData(response);
-                        }
                     })
                     .error(function (response) {
                         console.log('Error: ' + response);

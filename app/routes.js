@@ -5,11 +5,13 @@ module.exports = function (app) {
     // api ---------------------------------------------------------------------
     // get all messages
     app.get('/api/messages/:sessionId', function (req, res) {
+        // Disable caching for content files otherwise it will send 304 when data set not activly changing
+        res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+        res.header("Pragma", "no-cache");
+        res.header("Expires", 0);
 
         // use mongoose to get all todos in the database
-        Message.find({
-            'sessionId': req.params.sessionId
-        }, function (err, messages) {
+        Message.find(function (err, messages) {
 
             // if there is an error retrieving, send the error. nothing after res.send(err) will execute
             if (err) {
@@ -20,7 +22,7 @@ module.exports = function (app) {
                 //res.json(messages); // return all todos in JSON format
                 var msgs = [];
                 for (var x = 0; x < messages.length; x++) {
-                    if (messages[x].sessionId === req.body.sessionId) {
+                    if (messages[x].sessionId === req.params.sessionId) {
                         msgs.push(messages[x]);
                     }
                 }
@@ -29,7 +31,7 @@ module.exports = function (app) {
         });
     });
 
-    // create todo and send back all todos after creation
+    // create message and send back all messages after creation
     app.post('/api/messages/', function (req, res) {
         // create a message, information comes from AJAX request from Angular
         Message.create({
@@ -43,7 +45,7 @@ module.exports = function (app) {
                 res.send(err);
             } else {
                 console.log('success');
-                // get and return all the messages after you create another
+                // get and return all the messages then filter by sessionId
                 Message.find(function (err, messages) {
                     if (err)
                         res.send(err)
@@ -60,7 +62,7 @@ module.exports = function (app) {
 
     });
 
-    // update message and send back all messages after creation
+    // update message and send back all messages for sessionId after update
     app.put('/api/messages/:message_id', function (req, res) {
         Message.findById(req.params.message_id, function (err, message) {
             if (!message)
@@ -104,7 +106,6 @@ module.exports = function (app) {
                 Message.remove({
                     _id: req.params.message_id
                 }, function (err, result) {
-                    //            console.log('app.delete', message);
                     if (err) {
                         console.log('error :', err);
                         res.send(err);
@@ -113,15 +114,12 @@ module.exports = function (app) {
                             if (err) {
                                 res.send(err)
                             }
-                            //console.log('aSessionId', aSessionId);
-                            //console.log('app.delete Message.find', messages);
                             var msgs = [];
                             for (var j = 0; j < messages.length; j++) {
                                 if (messages[j].sessionId === message.sessionId) {
                                     msgs.push(messages[j]);
                                 }
                             }
-                            //console.log('app.delete Message.find msgs', messages);
                             res.json(msgs);
                         });
                     }
