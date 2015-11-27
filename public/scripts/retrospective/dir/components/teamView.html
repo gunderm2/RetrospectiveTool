@@ -110,7 +110,7 @@
                                     <div ng-show="notWell.updateMessage">
                                         <label for="notTextarea_{{$index}}">Enter message</label>
                                         <br>
-                                        <textarea id="notTextarea_{{$index}}" name="textarea2" rows="4" cols="50" ng-model="messages.notWell[$index].text ng-model-options="{ updateOn: 'blur' }""></textarea>
+                                        <textarea id="notTextarea_{{$index}}" name="textarea2" rows="4" cols="50" ng-model="messages.notWell[$index].text" ng-model-options="{ updateOn: 'blur' }"></textarea>
                                         <br />
                                         <button ng-click="updateMsg($index, 'notWell')">Save</button>
                                     </div>
