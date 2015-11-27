@@ -22,6 +22,7 @@
     <script src="scripts/home/homeController.js"></script>
     <script src="scripts/about/aboutController.js"></script>
     <script src="scripts/contact/contactController.js"></script>  
+    <script src="scripts/footer/footerController.js"></script>
     <script src="scripts/retrospective/dir/retrospectiveDirective.js"></script>  
     <script src="scripts/retrospective/dir/teamViewDirective.js"></script>
     <script src="scripts/retrospective/dir/createMessagesDirective.js"></script>
@@ -48,7 +49,7 @@
         <!-- this is where content will be injected -->
         <div ng-view></div>
     </div>
-    <footer>
+    <footer ng-controller="footerController">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -62,7 +63,7 @@
                             </a>
                         </li>
                         <li>
-                            <p><a href="http://mikeinmotion.net/#/home"  target="_blank">[mikeinmotion.net 2015]</a></p>
+                            <p><a href="http://mikeinmotion.net/#/home"  target="_blank">[mikeinmotion.net {{thisYear}}]</a></p>
                         </li>
                     </ul>                    
                 </div>
