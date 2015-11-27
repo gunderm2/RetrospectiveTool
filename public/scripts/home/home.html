@@ -1,5 +1,5 @@
 <div class="jumbotron text-center">
-    <h1>Home Page</h1>
+    <h1>Home</h1>
 
     <p>{{ shortMessage }}</p>
     <p>START - Scrum Team Anonymous Retrospective Template</p>
@@ -25,7 +25,7 @@
             <label for="iterationName">Iteration name:</label>
             <input type="text" class="form-control" id="iterationName" placeholder="My awesome iteration!" ng-model="iterationName">
         </div>
-        <button type="button" class="btn btn-default" ng-click="makeSessionId()">Generate session Id</button>
+        <button type="button" class="btn btn-primary" ng-click="makeSessionId()">Generate session Id</button>
         <button type="button" class="btn btn-default" ng-click="clearForm()">Clear form</button>
     </form>
 
@@ -35,7 +35,7 @@
             <label for="startSession">Session ID : (Already have a sessionId? Just enter your retrospective session here :)</label>
             <input type="text" class="form-control" id="startSession" placeholder="Session Id goes here..." ng-model="sessionId">
         </div>
-        <button type="button" class="btn btn-default" ng-show="sessionId" ng-click="startSession()">Start session</button>
+        <button type="button" class="btn btn-success" ng-show="sessionId" ng-click="startSession()">Start session</button>
     </form>
 </div>
 <br>

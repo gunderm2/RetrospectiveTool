@@ -1,5 +1,44 @@
 <div class="jumbotron text-center">
-	<h1>Contact Page</h1>
-	
-	<p>{{ shortMessage }}</p>
+    <h1>Under construction {Contact page}</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <p>Want to get in touch with me? Fill out the form below to send me a message and I will get back to you as soon as I can!</p>
+            <ng-form name="contactForm" id="contactForm" novalidate>
+                <div ng-show="successMessage" class="alert alert-success" role="alert">Thank you for the message. I will get back to you as soon as I can.</div>
+                <div ng-show="validationFailMessage" class="alert alert-danger" role="alert">Please fill in all the fields in the form and try again!</div>
+                <div class="row control-group">
+                   <p>* required fields</p>
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label for="name">Name*</label>
+                        <input type="text" ng-model="name" class="form-control" placeholder="Name" id="name" name="name" ng-required="true">
+                        <p ng-show="validationFailMessage && name === '' || contactForm.name.$dirty && contactForm.name.$error.required && contactForm.name.$invalid" class="alert alert-danger">Name is required.</p>
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label for="email">Email address*</label>
+                        <input type="email" ng-model="email" class="form-control" placeholder="Email Address" id="email" name="email" ng-required="true">
+                        <p ng-show="validationFailMessage && email === '' || contactForm.email.$dirty && contactForm.email.$error.required && contactForm.email.$invalid" class="alert alert-danger">Email is required.</p>
+                        <p ng-show="contactForm.email.$dirty && contactForm.email.$error.email && contactForm.email.$invalid" class="alert alert-danger">Invalid email address.</p>
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label for="message">Message*</label>
+                        <textarea rows="5" ng-model="message" class="form-control" placeholder="Message" id="message" name="message" ng-required="true"></textarea>
+                        <p ng-show="validationFailMessage && message === '' || contactForm.message.$dirty && contactForm.message.$error.required && contactForm.message.$invalid" class="alert alert-danger">Message is required.</p>
+                    </div>
+                </div>
+                <div id="success"></div>
+                <div class="row">
+                    <div class="form-group col-xs-12">
+                        <button type="submit" class="btn btn-default" ng-click="submitForm()" disabled>Send</button>
+                    </div>
+                </div>
+            </ng-form>
+        </div>
+    </div>
 </div>

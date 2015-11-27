@@ -34,7 +34,7 @@
                                     <div ng-show="kudo.updateMessage">
                                         <label for="kudosTextarea_{{$index}}">Enter message</label>
                                         <br>
-                                        <textarea id="kudosTextarea_{{$index}}" name="textarea2" rows="4" cols="50" ng-model="messages.kudos[$index].text"></textarea>
+                                        <textarea id="kudosTextarea_{{$index}}" name="textarea2" rows="4" cols="50" ng-model="messages.kudos[$index].text" ng-model-options="{ updateOn: 'blur' }"></textarea>
                                         <br />
                                         <button ng-click="updateMsg($index, 'kudos')">Save</button>
                                     </div>
@@ -72,7 +72,7 @@
                                     <div ng-show="well.updateMessage">
                                         <label for="wellTextarea_{{$index}}">Enter message</label>
                                         <br>
-                                        <textarea id="wellTextarea_{{$index}}" name="textarea2" rows="4" cols="50" ng-model="messages.wentWell[$index].text"></textarea>
+                                        <textarea id="wellTextarea_{{$index}}" name="textarea2" rows="4" cols="50" ng-model="messages.wentWell[$index].text" ng-model-options="{ updateOn: 'blur' }"></textarea>
                                         <br />
                                         <button ng-click="updateMsg($index, 'wentWell')">Save</button>
                                     </div>
@@ -110,7 +110,7 @@
                                     <div ng-show="notWell.updateMessage">
                                         <label for="notTextarea_{{$index}}">Enter message</label>
                                         <br>
-                                        <textarea id="notTextarea_{{$index}}" name="textarea2" rows="4" cols="50" ng-model="messages.notWell[$index].text"></textarea>
+                                        <textarea id="notTextarea_{{$index}}" name="textarea2" rows="4" cols="50" ng-model="messages.notWell[$index].text ng-model-options="{ updateOn: 'blur' }""></textarea>
                                         <br />
                                         <button ng-click="updateMsg($index, 'notWell')">Save</button>
                                     </div>
