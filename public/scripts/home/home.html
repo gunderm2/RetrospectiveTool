@@ -38,7 +38,7 @@
                             <label for="iterationName">Iteration name:</label>
                             <input type="text" class="form-control" id="iterationName" placeholder="My awesome iteration!" ng-model="iterationName">
                         </div>
-                        <button type="button" class="btn btn-primary" ng-click="makeSessionId()">Generate session Id</button>
+                        <button type="button" class="btn btn-primary" ng-click="makeSessionId(companyName, projectName, iterationName)">Generate session Id</button>
                         <button type="button" class="btn btn-default" ng-click="clearForm()">Clear form</button>
                     </form>
 

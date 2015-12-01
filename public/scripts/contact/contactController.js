@@ -1,6 +1,6 @@
 (function () {
-    'use strict'
-    myApp.controller('contactController', function ($scope, $http) {
+    "use strict";
+    angular.module('startapp').controller('contactController', function ($scope, $http) {
         $scope.succssMessage = false;
         $scope.validationFailMessage = false;
         $scope.name = '';

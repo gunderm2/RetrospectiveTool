@@ -1,8 +1,8 @@
 (function () {
-    'use strict'
+    "use strict";
 
     // create the controller and inject Angular's $scope
-    myApp.controller('retrospectiveController', function ($scope, $location, $routeParams, app_constants, sessionUtils) {
+    angular.module('startapp').controller('retrospectiveController', function ($scope, $location, $routeParams, app_constants, sessionUtils) {
         //$scope.authorized = authorized;
         //console.log($scope.authorized);
         $scope.canRetro = false;

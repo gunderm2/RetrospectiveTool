@@ -1,7 +1,7 @@
 (function () {
-    'use strict'
+    "use strict";
 
-    myApp.factory('messagesService', messagesService);
+    angular.module('startapp').factory('messagesService', messagesService);
 
     messagesService.$inject = ['$http'];
 

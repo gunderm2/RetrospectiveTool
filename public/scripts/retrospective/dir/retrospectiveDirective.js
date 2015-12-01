@@ -1,4 +1,4 @@
-myApp.directive('retrospectiveDirective', function () {
+angular.module('startapp').directive('retrospectiveDirective', function () {
     return {
         restrict: 'AE',
         transclude: true,

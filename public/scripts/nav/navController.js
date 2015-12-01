@@ -1,8 +1,7 @@
 (function () {
-    'use strict'
+    "use strict";
 
-
-    myApp.controller('navController', function ($scope, $rootScope, $location, app_constants, sessionUtils) {
+    angular.module('startapp').controller('navController', function ($scope, $rootScope, $location, app_constants, sessionUtils) {
         'use strict'
         $scope.canRetropect = sessionUtils.isSessionIdSet(app_constants.sessionStorageId);
         //console.log('navController canRetrospect :', $scope.canRetropect);

@@ -1,11 +1,11 @@
-var myApp = angular.module('startapp', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
+angular.module('startapp', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
 
-myApp.constant('app_constants', {
+angular.module('startapp').constant('app_constants', {
     'sessionStorageId': 'sessionId'
 });
 
 // configure our routes
-myApp.config(function ($routeProvider) {
+angular.module('startapp').config(function ($routeProvider) {
     'use strict'
     $routeProvider
     // route for the home page
@@ -43,8 +43,6 @@ myApp.config(function ($routeProvider) {
         });
 });
 
-//Known issue: when retro page initializes view data is [] if db does not get updates server returns 304 not modified. 
-//this is not an issue when the retrospective is active going.
 //TODO: 
 //    add unit tests and karma
 //    create unit tests

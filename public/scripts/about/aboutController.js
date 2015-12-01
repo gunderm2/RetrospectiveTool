@@ -1,4 +1,5 @@
 (function () {
-    myApp.controller('aboutController', function ($scope) {
+    "use strict";
+    angular.module('startapp').controller('aboutController', function ($scope) {
     });
 })();

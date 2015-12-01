@@ -1,7 +1,7 @@
 (function () {
-    'use strict'
+    "use strict";
 
-    myApp.factory('sessionUtils', sessionUtils);
+    angular.module('startapp').factory('sessionUtils', sessionUtils);
 
     sessionUtils.$inject = ['$location', '$window', '$q', '$rootScope', 'app_constants'];
 

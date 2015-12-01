@@ -1,4 +1,4 @@
-myApp.directive('teamView', function () {    
+angular.module('startapp').directive('teamView', function () {    
     return {
         restrict: 'E',
         replace: true,

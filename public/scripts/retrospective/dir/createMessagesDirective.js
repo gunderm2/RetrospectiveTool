@@ -1,4 +1,4 @@
-myApp.directive('createMessages', function () {
+angular.module('startapp').directive('createMessages', function () {
     return {
         restrict: 'E',
         replace: true,

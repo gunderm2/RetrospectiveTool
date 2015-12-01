@@ -1,9 +1,8 @@
 (function () {
-    'use strict'
-
+    "use strict";
 
     // create the controller and inject Angular's $scope
-    myApp.controller('homeController', function ($scope, $rootScope, $location, app_constants, sessionUtils) {
+    angular.module('startapp').controller('homeController', function ($scope, $rootScope, $location, app_constants, sessionUtils) {
         'use strict'
         $scope.oneAtATime = true;
         $scope.status = {
@@ -40,10 +39,10 @@
         $scope.shortMessage = 'A high quality retrospective tool that is fully anonymous!';
         $scope.sessionId = "";
 
-        $scope.makeSessionId = function () {
-            console.log('hi');
+        $scope.makeSessionId = function (compName, projName, iterName) {
             if (!$scope.sessionId) {
-                $scope.sessionId = genSessionId($scope.companyName, $scope.projectName, $scope.iterationName);
+                $scope.sessionId = genSessionId(compName, projName, iterName);
+                setSessionAttributes($scope.sessionId, $scope.today, compName, projName, iterName);
             }
         };
 
@@ -55,17 +54,11 @@
         };
 
         $scope.startSession = function (id) {
-            $scope.sessionId = id;
-            if ($scope.sessionId) {
-                sessionUtils.setSessionAttribute(app_constants.sessionStorageId, {
-                    sessionId: $scope.sessionId,
-                    date: $scope.today,
-                    companyName: $scope.companyName,
-                    projectName: $scope.projectName,
-                    iterationName: $scope.iterationName
-                });
+            if (id) {
+                //make rest call here to get the company info from sessionId
+                setSessionAttributes(id, $scope.today);//pass in company info here to set on session
                 $rootScope.$broadcast('canRetrospect', true);
-                $location.path('/retrospective/' + $scope.sessionId);
+                $location.path('/retrospective/' + id);
 
             } else {
                 $scope.notAuthorizedAlert = true;
@@ -93,6 +86,22 @@
                 }
             }
             return mutableString + new Date().getTime().toString();
+        }
+
+        function setSessionAttributes(sessionId, todaysDate, companyName, projectName, iterationName) {
+            if (typeof (Storage) !== "undefined") {
+                // Code for localStorage/sessionStorage.
+                sessionUtils.setSessionAttribute(app_constants.sessionStorageId, {
+                    sessionId: sessionId,
+                    date: todaysDate,
+                    companyName: companyName,
+                    projectName: projectName,
+                    iterationName: iterationName
+                });
+            } else {
+                // Sorry! No Web Storage support..
+                //TODO set page level message or form message saying browser does not support storage
+            }
         }
     });
 })();
