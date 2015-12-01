@@ -8,35 +8,70 @@
 
 
 <div class="well">
-    <form>
-        <div ng-show="notAuthorizedAlert" class="alert alert-danger alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>Warning!</strong> You need to generate or enter in a sessionId to start a retrospective!
-        </div>
-        <div class="form-group">
-            <label for="companyName">Company name:</label>
-            <input type="text" class="form-control" id="companyName" placeholder="My awesome company!" ng-model="companyName">
-        </div>
-        <div class="form-group">
-            <label for="projectName">Project name:</label>
-            <input type="text" class="form-control" id="projectName" placeholder="My awesome project!" ng-model="projectName">
-        </div>
-        <div class="form-group">
-            <label for="iterationName">Iteration name:</label>
-            <input type="text" class="form-control" id="iterationName" placeholder="My awesome iteration!" ng-model="iterationName">
-        </div>
-        <button type="button" class="btn btn-primary" ng-click="makeSessionId()">Generate session Id</button>
-        <button type="button" class="btn btn-default" ng-click="clearForm()">Clear form</button>
-    </form>
 
 
-    <form>
-        <div class="form-group">
-            <label for="startSession">Session ID : (Already have a sessionId? Just enter your retrospective session here :)</label>
-            <input type="text" class="form-control" id="startSession" placeholder="Session Id goes here..." ng-model="sessionId">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Retrospective session management</h3>
         </div>
-        <button type="button" class="btn btn-success" ng-show="sessionId" ng-click="startSession()">Start session</button>
-    </form>
+        <div class="panel-body">
+            <uib-accordion close-others="oneAtATime">
+                <uib-accordion-group is-open="status.open">
+                    <uib-accordion-heading>
+                        Start retrospective session <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                    </uib-accordion-heading>
+                    <form>
+                        <div ng-show="notAuthorizedAlert" class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>Warning!</strong> You need to generate or enter in a sessionId to start a retrospective!
+                        </div>
+                        <div class="form-group">
+                            <label for="companyName">Company name:</label>
+                            <input type="text" class="form-control" id="companyName" placeholder="My awesome company!" ng-model="companyName">
+                        </div>
+                        <div class="form-group">
+                            <label for="projectName">Project name:</label>
+                            <input type="text" class="form-control" id="projectName" placeholder="My awesome project!" ng-model="projectName">
+                        </div>
+                        <div class="form-group">
+                            <label for="iterationName">Iteration name:</label>
+                            <input type="text" class="form-control" id="iterationName" placeholder="My awesome iteration!" ng-model="iterationName">
+                        </div>
+                        <button type="button" class="btn btn-primary" ng-click="makeSessionId()">Generate session Id</button>
+                        <button type="button" class="btn btn-default" ng-click="clearForm()">Clear form</button>
+                    </form>
+
+
+                    <form>
+                        <div class="form-group">
+                            <label for="startSession">Session ID : (Already have a sessionId? Just enter your retrospective session here :)</label>
+                            <input type="text" class="form-control" id="startSession" placeholder="Session Id goes here..." ng-model="sessionId">
+                        </div>
+                        <button type="button" class="btn btn-success" ng-show="sessionId" ng-click="startSession(sessionId)">Start session</button>
+                    </form>
+                </uib-accordion-group>
+                <uib-accordion-group is-open="status.open2">
+                    <uib-accordion-heading>
+                        Join restrospective session already in progress <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open2, 'glyphicon-chevron-right': !status.open2}"></i>
+                    </uib-accordion-heading>
+                    <form>
+                        <div class="form-group">
+                            <label for="startSession">Session ID : (Already have a sessionId? Just enter your retrospective session here :)</label>
+                            <input type="text" class="form-control" id="startSession2" placeholder="Session Id goes here..." ng-model="sessionId">
+                        </div>
+                        <button type="button" class="btn btn-success" ng-show="sessionId" ng-click="startSession(sessionId)">Start session</button>
+                    </form>
+                </uib-accordion-group>
+            </uib-accordion>
+        </div>
+    </div>
+
+
+
+
+
+
 </div>
 <br>
 <br>

@@ -1,4 +1,4 @@
-var myApp = angular.module('startapp', ['ngRoute']);
+var myApp = angular.module('startapp', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
 
 myApp.constant('app_constants', {
     'sessionStorageId': 'sessionId'

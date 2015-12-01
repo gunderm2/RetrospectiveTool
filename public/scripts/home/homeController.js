@@ -5,6 +5,11 @@
     // create the controller and inject Angular's $scope
     myApp.controller('homeController', function ($scope, $rootScope, $location, app_constants, sessionUtils) {
         'use strict'
+        $scope.oneAtATime = true;
+        $scope.status = {
+            isFirstOpen: true,
+            isFirstDisabled: false
+        };
         //var t = 60000; //milliseconds in a minute
         //var y = 60; //min in an hour
         //var m = 24; //hours in day
@@ -49,7 +54,8 @@
             $scope.sessionId = "";
         };
 
-        $scope.startSession = function () {
+        $scope.startSession = function (id) {
+            $scope.sessionId = id;
             if ($scope.sessionId) {
                 sessionUtils.setSessionAttribute(app_constants.sessionStorageId, {
                     sessionId: $scope.sessionId,
