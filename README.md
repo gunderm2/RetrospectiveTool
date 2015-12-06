@@ -1,7 +1,7 @@
 # RetrospectiveTool
 Agile/Scrum team anonymous retrospective tool
 
-Currently hosted: https://retrospective-tool.herokuapp.com/
+Currently hosted: https://live-retrospective-tool-io.herokuapp.com
 ## Synopsis
 
 This project was created to give Agile teams the ability to have anonymous retrospective meetings. Multiple teams can use the application at the same time by having their own sessionId's.
