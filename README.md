@@ -16,11 +16,17 @@ The motivation for this project was to replace a spreadsheet system for document
 
 ## Installation
 
-GitHub clone URL: https://github.com/gunderm2/RetrospectiveTool.git
+1) GitHub clone URL: https://github.com/gunderm2/RetrospectiveTool.git
+2) Make minor code changes: add your MongoDB connection string in the config.js file:
+Example:
+module.exports = {
+	// the database url to connect
+    url : 'mongodb://<app_user>:<Password>@ds<URI>:<port>/<db-name>'
+}
 
 ## Tests
 
-Run tests using Karma, Jasmine and Grunt
+Note: not yet implemented (Run tests using Karma, Jasmine and Grunt)
 
 ## Contributors
 
